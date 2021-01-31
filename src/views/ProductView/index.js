@@ -8,13 +8,13 @@ import Button from '@material-ui/core/Button';
 import { useSelector, useDispatch } from "react-redux";
 import { fireStore } from '../../firebase.config';
 import ListSubheader from '@material-ui/core/ListSubheader';
-import DialogAddProduct from '../../components/DialogAddProduct'
-import DialogUpdateProduct from '../../components/DialogUpdateProduct'
+// import DialogAddProduct from '../../components/DialogAddProduct'
+// import DialogUpdateProduct from '../../components/DialogUpdateProduct'
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
-import ListItem from '@material-ui/core/ListItem';
-import { ButtonBase } from '@material-ui/core';
+// import ListItem from '@material-ui/core/ListItem';
+// import { ButtonBase } from '@material-ui/core';
 import Badge from '@material-ui/core/Badge';
 import { withStyles } from '@material-ui/core/styles';
 import IconButton from '@material-ui/core/IconButton';
@@ -82,16 +82,16 @@ function ProductView() {
     }
     const appRef = fireStore.collection("line_apps");
 
-    const openDialogUpdateProduct = (prop, number) => (event) => {
-        console.log(prop, number);
-        dispatch({ type: "PRODUCT_UPDATE_NUMBER", payload: number })
-        dispatch({ type: "PRODUCT_UPDATE_ID", payload: prop.id })
-        dispatch({ type: "PRODUCT_UPDATE_NAME", payload: prop.name })
-        dispatch({ type: "PRODUCT_UPDATE_PRUDUCT_ID", payload: prop.productId })
-        dispatch({ type: "PRODUCT_UPDATE_PRICE", payload: prop.price })
-        dispatch({ type: "PRODUCT_UPDATE_IMAGE", payload: prop.image })
-        dispatch({ type: "CONTROL_OPEN_DIALOG_UPDATE_PRODUCT", payload: !control.openDialogUpdateProduct })
-    }
+    // const openDialogUpdateProduct = (prop, number) => (event) => {
+    //     console.log(prop, number);
+    //     dispatch({ type: "PRODUCT_UPDATE_NUMBER", payload: number })
+    //     dispatch({ type: "PRODUCT_UPDATE_ID", payload: prop.id })
+    //     dispatch({ type: "PRODUCT_UPDATE_NAME", payload: prop.name })
+    //     dispatch({ type: "PRODUCT_UPDATE_PRUDUCT_ID", payload: prop.productId })
+    //     dispatch({ type: "PRODUCT_UPDATE_PRICE", payload: prop.price })
+    //     dispatch({ type: "PRODUCT_UPDATE_IMAGE", payload: prop.image })
+    //     dispatch({ type: "CONTROL_OPEN_DIALOG_UPDATE_PRODUCT", payload: !control.openDialogUpdateProduct })
+    // }
 
     const getOrder = (prop, key) => (event) => {
         order.storage.push(prop)

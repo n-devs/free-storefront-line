@@ -1,7 +1,7 @@
 import React from 'react';
 import queryString from "query-string";
 import { useSelector, useDispatch } from "react-redux";
-import { useHistory, Redirect } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import liff from "@line/liff";
 import { fireStore } from "../../firebase.config"
 

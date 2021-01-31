@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import liff from "@line/liff";
+// import liff from "@line/liff";
 import {
   makeStyles
 } from "@material-ui/core/styles";

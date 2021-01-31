@@ -2,8 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Dialog from '@material-ui/core/Dialog';
 import Button from '@material-ui/core/Button';
-import List from '@material-ui/core/List';
-import Grid from '@material-ui/core/Grid';
+// import List from '@material-ui/core/List';
+// import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -11,14 +11,14 @@ import Typography from '@material-ui/core/Typography';
 import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import { useSelector, useDispatch } from "react-redux";
-import NumberPhoneInput from '../NumberPhoneInput';
-import Snackbar from '@material-ui/core/Snackbar';
+// import NumberPhoneInput from '../NumberPhoneInput';
+// import Snackbar from '@material-ui/core/Snackbar';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText'
 import Divider from '@material-ui/core/Divider';
 import InputBase from '@material-ui/core/InputBase';
 import { fireStore } from '../../firebase.config'
-import queryString from "query-string";
+// import queryString from "query-string";
 
 const useStyles = makeStyles((theme) => ({
     appBar: {
@@ -48,7 +48,7 @@ export default function DialogAddAddress() {
     const address = useSelector(state => state.address);
     const user = useSelector(state => state.user);
     const appRef = fireStore.collection("line_apps");
-    const parsed = queryString.parse(window.location.search);
+    // const parsed = queryString.parse(window.location.search);
 
     const handleClose = () => {
         dispatch({ type: "CONTROL_OPEN_DIALOG_ADD_ADDRESS", payload: !control.openDialogAddAddress })

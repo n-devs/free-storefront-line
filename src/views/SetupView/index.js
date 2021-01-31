@@ -114,7 +114,7 @@ function SetupView() {
             console.log("b");
             dispatch({ type: "AUTH_LIFF_ID", payload: parsed.liff_id })
         }
-    }, [auth.status])
+    }, [])
 
     return (
         <div>

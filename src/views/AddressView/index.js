@@ -2,17 +2,17 @@ import React from 'react';
 import {
     makeStyles
 } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
+// import Grid from '@material-ui/core/Grid';
+// import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import { useSelector, useDispatch } from "react-redux";
 import { fireStore } from '../../firebase.config';
-import queryString from "query-string";
-import Snackbar from '@material-ui/core/Snackbar';
-import Slide from '@material-ui/core/Slide';
-import MuiAlert from '@material-ui/lab/Alert';
+// import queryString from "query-string";
+// import Snackbar from '@material-ui/core/Snackbar';
+// import Slide from '@material-ui/core/Slide';
+// import MuiAlert from '@material-ui/lab/Alert';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -40,18 +40,18 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-function TransitionDown(props) {
-    return <Slide {...props} direction="down" />;
-}
+// function TransitionDown(props) {
+//     return <Slide {...props} direction="down" />;
+// }
 
-function Alert(props) {
-    return <MuiAlert elevation={6} variant="filled" {...props} />;
-}
+// function Alert(props) {
+//     return <MuiAlert elevation={6} variant="filled" {...props} />;
+// }
 
 function AddressView() {
     const dispatch = useDispatch();
     const classes = useStyles();
-    const parsed = queryString.parse(window.location.search);
+    // const parsed = queryString.parse(window.location.search);
     const user = useSelector(state => state.user);
     const address = useSelector(state => state.address);
     const control = useSelector(state => state.control);
@@ -59,7 +59,7 @@ function AddressView() {
     function openDialogAddAddress() {
         dispatch({ type: "CONTROL_OPEN_DIALOG_ADD_ADDRESS", payload: !control.openDialogAddAddress })
     }
-    const appRef = fireStore.collection("line_apps");
+  
 
     const openDialogUpdateAddress = (prop, number) => (event) => {
         console.log(prop,number);
@@ -71,12 +71,13 @@ function AddressView() {
         dispatch({ type: "CONTROL_OPEN_DIALOG_UPDATE_ADDRESS", payload: !control.openDialogUpdateAddress })
     }
 
-    function handleClose() {
-        dispatch({ type: "CONTROL_OPEN_SNACKBARK_UPDATE_NUMBER_PHONE_SECCUSS", payload: !control.openSnackbarUpdateNumberSeccuss })
-    }
+    // function handleClose() {
+    //     dispatch({ type: "CONTROL_OPEN_SNACKBARK_UPDATE_NUMBER_PHONE_SECCUSS", payload: !control.openSnackbarUpdateNumberSeccuss })
+    // }
 
     React.useEffect(() => {
         const data = [];
+        const appRef = fireStore.collection("line_apps");
         appRef.doc(sessionStorage.getItem("liff_id")).collection("users").doc(user.userId).collection("address").get().then(snapshot => {
             snapshot.docs.forEach(hospital => {
                 data.push(hospital.data())
