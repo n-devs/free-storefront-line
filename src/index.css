@@ -1,8 +1,6 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Roboto,Meiryo,-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Segoe UI Emoji,Segoe UI Symbol,Apple Color Emoji,Noto Color Emoji,Noto Emoji,sans-serif,Arial;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
