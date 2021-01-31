@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme) => ({
     padding: "10px 0px"
   },
   app: {
-    height: 450
+    // height: 450
   }
 }));
 
@@ -94,12 +94,12 @@ function App() {
         <Loading></Loading>
       ) : (<React.Fragment>
         <Router>
-          <TransitionGroup>
+          {/* <TransitionGroup>
             <CSSTransition
               key={window.location.key}
               classNames="fade"
               timeout={300}
-            >
+            > */}
               <Switch>
                 <Route exact path={`/`}>
                   {sessionStorage.getItem("liff_id") ? (<LiffRedirectUriView></LiffRedirectUriView>) : (<NotFoundLIFFIDView></NotFoundLIFFIDView>)}
@@ -130,8 +130,8 @@ function App() {
                   </RunView>
                 </Route>
               </Switch>
-            </CSSTransition>
-          </TransitionGroup>
+            {/* </CSSTransition>
+          </TransitionGroup> */}
         </Router>
       </React.Fragment>)}
     </div>

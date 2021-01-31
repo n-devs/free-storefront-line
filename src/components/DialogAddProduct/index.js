@@ -90,7 +90,7 @@ export default function DialogAddProduct() {
 
     async function Add() {
         const arr = product.storage;
-        const addressRef = appRef.doc(sessionStorage.getItem("liff_id")).collection("users").doc(user.userId).collection("products").doc();
+        const addressRef = appRef.doc(sessionStorage.getItem("liff_id")).collection("products").doc();
         await addressRef.set({
             id: addressRef.id,
             name: product.addName,

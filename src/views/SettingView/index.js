@@ -84,86 +84,97 @@ function SettingView() {
         dispatch({ type: "AUTH_LIFF_ID", payload: parsed.liff_id })
     }, [window.location.pathname])
     return (
-        <div>
-            <Grid
-                container
-                direction="row"
-                justify="center"
-                alignItems="center"
-                className={classes.app}
-            >
-                <Grid item xs={12}>
-                    <Grid
-                        container
-                        direction="column"
-                        justify="center"
-                        alignItems="center"
-                    >
-                        <Grid item xs={12}>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="center"
-                                alignItems="center"
-                                className={classes.layout}
-                                style={{
-                                    paddingTop: 20
-                                }}
-                            >
-                                <Avatar alt={user.displayName} src={user.pictureUrl} className={classes.avatars} />
-                            </Grid>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="center"
-                                alignItems="center"
-                                className={classes.layout}
-                            >
-                                <Typography variant="h6" component="h6">
-                                    {user.displayName}
-                                </Typography>
-                            </Grid>
-                            <Grid
-                                container
-                                direction="row"
-                                justify="center"
-                                alignItems="center"
-                                className={classes.layout}
-                                style={{
-                                    paddingTop: 20
-                                }}
-                            >
-                                <label htmlFor="phone">{"หมายเลขโทรศัพท์ที่ลงทะเบียน:"}</label>
-                                <NumberPhoneInput type="tel" id="phone" name="phone" pattern="[0-9]{3} [0-9]{2} [0-9]{3} [0-9]{4}" placeholder="+66 80 123 1234" value={user.numberPhone} onClick={openDialog}></NumberPhoneInput>
-                            </Grid>
+        <Grid
+            container
+            direction="row"
+            justify="center"
+            alignItems="center"
+            className={classes.app}
+        >
+            <Grid item xs={12}>
+                <Grid
+                    container
+                    // direction="column"
+                    justify="center"
+                    alignItems="center"
+                >
+                    <Grid item xs={12}>
+                       
+                       <Grid
+                            container
+                            direction="row"
+                            justify="center"
+                            alignItems="center"
+                            className={classes.layout}
+                            style={{
+                                paddingTop: 20
+                            }}
+                        >
+                            <Avatar alt={user.displayName} src={user.pictureUrl} className={classes.avatars} />
                         </Grid>
-                        <Grid item xs={12}></Grid>
+                       
+                        <Grid
+                            container
+                            direction="row"
+                            justify="center"
+                            alignItems="center"
+                            className={classes.layout}
+                        >
+                            <Typography variant="h6" component="h6">
+                                {user.displayName}
+                            </Typography>
+                        </Grid>
+                        
+                        <Grid
+                            container
+                            direction="row"
+                            justify="center"
+                            alignItems="center"
+                            className={classes.layout}
+                            style={{
+                                paddingTop: 20
+                            }}
+                        >
+                            <label htmlFor="phone">{"หมายเลขโทรศัพท์ที่ลงทะเบียน:"}</label>
+                            <NumberPhoneInput type="tel" id="phone" name="phone" pattern="[0-9]{3} [0-9]{2} [0-9]{3} [0-9]{4}" placeholder="+66 80 123 1234" value={user.numberPhone} onClick={openDialog}></NumberPhoneInput>
+                        </Grid>
+                   
                     </Grid>
-                </Grid>
-            </Grid>
-            <AppBar position="fixed" color="primary" className={classes.appBar}>
-                <Button variant="contained" style={{ fontSize: '1em', backgroundColor: "#00b900", color: "#fff", fontWeight: "bold" }} onClick={Update}>
-                    {"เปลี่ยนหมายเลขโทรศัพท์"}
-                </Button>
-            </AppBar>
-            <DialogChangNumberPhone></DialogChangNumberPhone>
-            <Snackbar
-                anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
-                open={control.openSnackbarUpdateNumberSeccuss}
-                onClose={handleClose}
-                style={{ backgroundColor: 'white' }}
-                ContentProps={{ style: { backgroundColor: 'white',
-                boxShadow: '0px 3px 5px -1px rgb(0 0 0 / 0%), 0px 6px 10px 0px rgb(0 0 0 / 0%), 0px 1px 18px 0px rgb(0 0 0 / 0%)' } }}
-                TransitionComponent={TransitionDown}
-                autoHideDuration={6000}
-                message={<Alert onClose={handleClose} severity="success">
-                    {`บันทึกหมายเลขโทรศัพท์ ${user.numberPhone}`}
-                </Alert>}
-                key={"top" + "center"}
-            >
 
-            </Snackbar>
-        </div>
+                    <Grid item xs={12}>
+                        <AppBar position="fixed"  className={classes.appBar}>
+                            <Button variant="contained" style={{ fontSize: '1em', backgroundColor: "#00b900", color: "#fff", fontWeight: "bold" }} onClick={Update}>
+                                {"เปลี่ยนหมายเลขโทรศัพท์"}
+                            </Button>
+                        </AppBar>
+                        <DialogChangNumberPhone></DialogChangNumberPhone>
+                        <Snackbar
+                            anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+                            open={control.openSnackbarUpdateNumberSeccuss}
+                            onClose={handleClose}
+                            style={{ backgroundColor: 'white' }}
+                            ContentProps={{
+                                style: {
+                                    backgroundColor: 'white',
+                                    boxShadow: '0px 3px 5px -1px rgb(0 0 0 / 0%), 0px 6px 10px 0px rgb(0 0 0 / 0%), 0px 1px 18px 0px rgb(0 0 0 / 0%)'
+                                }
+                            }}
+                            TransitionComponent={TransitionDown}
+                            autoHideDuration={6000}
+                            message={<Alert onClose={handleClose} severity="success">
+                                {`บันทึกหมายเลขโทรศัพท์ ${user.numberPhone}`}
+                            </Alert>}
+                            key={"top" + "center"}
+                        >
+
+                        </Snackbar>
+                    </Grid>
+                
+                </Grid>
+           
+            </Grid>
+
+        </Grid>
     )
 };
 

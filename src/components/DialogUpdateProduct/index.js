@@ -89,7 +89,7 @@ export default function DialogUpdateProduct() {
     };
 
     async function Add() {
-        const productRef = appRef.doc(sessionStorage.getItem("liff_id")).collection("users").doc(user.userId).collection("products").doc(product.updateId);
+        const productRef = appRef.doc(sessionStorage.getItem("liff_id")).collection("products").doc(product.updateId);
         await productRef.set({
             id: product.updateId,
             name: product.updateName,

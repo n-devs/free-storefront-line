@@ -26,7 +26,7 @@ export default function DialogDeleteProduct() {
     };
 
     async function Delete() {
-        const productRef = appRef.doc(sessionStorage.getItem("liff_id")).collection("users").doc(user.userId).collection("products").doc(product.updateId);
+        const productRef = appRef.doc(sessionStorage.getItem("liff_id")).collection("products").doc(product.updateId);
         await productRef.delete()
         delete product.storage[product.updateNumber]
         dispatch({ type: "PRODUCT_STORAGE", payload: product.storage });

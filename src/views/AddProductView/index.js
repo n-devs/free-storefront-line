@@ -71,7 +71,7 @@ function AddProductView() {
 
     React.useEffect(() => {
         const data = [];
-        appRef.doc(sessionStorage.getItem("liff_id")).collection("users").doc(user.userId).collection("products").get().then(snapshot => {
+        appRef.doc(sessionStorage.getItem("liff_id")).collection("products").get().then(snapshot => {
             snapshot.docs.forEach(hospital => {
                 data.push(hospital.data())
             });
