@@ -20,4 +20,4 @@ if (!firebase.apps.length) {
 }
 
 export const fireStore = firebase.firestore();
-
+export const analytics = firebase.analytics();
