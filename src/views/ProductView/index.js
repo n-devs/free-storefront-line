@@ -10,6 +10,7 @@ import { fireStore } from '../../firebase.config';
 import ListSubheader from '@material-ui/core/ListSubheader';
 // import DialogAddProduct from '../../components/DialogAddProduct'
 // import DialogUpdateProduct from '../../components/DialogUpdateProduct'
+import List from '@material-ui/core/List';
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
 import GridListTileBar from '@material-ui/core/GridListTileBar';
@@ -121,39 +122,50 @@ function ProductView() {
     return (
         <div style={{ paddingBottom: 70 }}>
 
-            <GridList className={classes.gridList}>
-                <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
+            <List style={{ 
+                backgroundColor: "white"
+            }} component="nav"
+                aria-labelledby="nested-list-subheader"
+                subheader={
+                    <ListSubheader component="div">{"สินค้า"} <IconButton style={{ float: 'right' }} aria-label="cart" onClick={openDialogListOrder}>
+                        <StyledBadge badgeContent={order.length} color="secondary" >
+                            <ShoppingCartIcon />
+                        </StyledBadge>
+                    </IconButton></ListSubheader>
+                }>
+                {/* <GridListTile key="Subheader" cols={2} style={{ height: 'auto' }}>
                     <ListSubheader component="div">{"สินค้า"} <IconButton style={{ float: 'right' }} aria-label="cart" onClick={openDialogListOrder}>
                         <StyledBadge badgeContent={order.length} color="secondary" >
                             <ShoppingCartIcon />
                         </StyledBadge>
                     </IconButton></ListSubheader>
 
-                </GridListTile>
-                {product.storage.map((data, key) => (
+                </GridListTile> */}
+                <GridList className={classes.gridList}>
+                    {product.storage.map((data, key) => (
 
-                    <GridListTile key={key} component="a" onClick={getOrder(data, key)}>
-                        {/* <div style={{
+                        <GridListTile key={key} component="a" onClick={getOrder(data, key)}>
+                            {/* <div style={{
                             textAlign: 'end',
                             color: '#35b900',
                         }}>
                             <Typography variant="h6">{0}</Typography>
                         </div> */}
 
-                        <img src={data.image} alt={data.name} />
+                            <img src={data.image} alt={data.name} />
 
-                        <GridListTileBar
-                            title={data.name}
-                            subtitle={<span>id: {data.productId}</span>}
-                            actionIcon={
-                                <Typography variant="h6" style={{ color: 'white' }}>{`${data.price} `}<span style={{ fontSize: 15 }}>บาท</span></Typography>
-                            }
-                        />
-                    </GridListTile>
+                            <GridListTileBar
+                                title={data.name}
+                                subtitle={<span>id: {data.productId}</span>}
+                                actionIcon={
+                                    <Typography variant="h6" style={{ color: 'white' }}>{`${data.price} `}<span style={{ fontSize: 15 }}>บาท</span></Typography>
+                                }
+                            />
+                        </GridListTile>
 
-                ))}
-
-            </GridList>
+                    ))}
+                </GridList>
+            </List>
             <AppBar position="fixed" color="primary" className={classes.appBar}>
                 <Button variant="contained" style={{ fontSize: '1em', backgroundColor: "#00b900", color: "#fff", fontWeight: "bold" }} onClick={openDialogSelectAddress}>
                     {"ซื้อ"}
